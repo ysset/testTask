@@ -7,9 +7,15 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "denali-css": "^2.0.2",
+    "denali-icon-font": "^1.5.0",
+    "flexboxgrid": "^6.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
     "react-scripts": "3.4.1",
+    "react-table": "^7.3.2",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "sticky-react-table": "^0.4.26"
   },
   "scripts": {
