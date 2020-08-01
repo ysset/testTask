@@ -55,19 +55,30 @@ class App extends React.Component {
     }
 
     render() {
+        const {error} = this.props.state
         if(this.shouldComponentRender())  return (
             <div className="modal is-active">
                 <div className="modal-container center-xs">
-
                     <div className="row modal-content">
-                        <div className={'col-xs'}>
-                            <button className={'button is-outline'} onClick={this.handleSendDataToFetchBig}>{!this.state.pressed && 'Big data'}{this.state.pressed && <LoadingSpiner/>}</button>
-                        </div>
-                        <div className={'col-xs'}>
-                            <button className={'button is-outline'} onClick={this.handleSendDataToFetchSmall}>{!this.state.pressed && 'Small data'}{this.state.pressed && <LoadingSpiner/>}</button>
-                        </div>
-                    </div>
 
+                        {!error && <> <div className={'col-xs'}>
+                            <button className={'button is-outline'}
+                                    onClick={this.handleSendDataToFetchBig}>
+                                {!this.state.pressed && 'Big data'}
+                                {this.state.pressed && <LoadingSpiner/>}
+                            </button>
+                        </div>
+                            <div className={'col-xs'}>
+                                <button className={'button is-outline'}
+                                        onClick={this.handleSendDataToFetchSmall}>
+                                    {!this.state.pressed && 'Small data'}
+                                    {this.state.pressed && <LoadingSpiner/>}
+                                </button>
+                            </div>
+                        </>}
+
+                        {error && <span className='product-list-error'>{error}</span>}
+                    </div>
                 </div>
             </div>
         )
