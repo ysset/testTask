@@ -58,5 +58,4 @@ export function setNewCardData(newCardState) {
         type: SET_NEW_CARD_DATA,
         newCardState: newCardState
     }
-
 }

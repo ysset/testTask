@@ -1,10 +1,9 @@
-import {fetchDataPending, fetchDataSuccess, fetchDataError} from './actions';
+import {fetchDataSuccess, fetchDataError} from './actions';
 
-function fetchData() {
+function fetchData(whatFetch) {
 
     return dispatch => {
-        dispatch(fetchDataPending());
-        fetch('http://www.filltext.com/?rows=32&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}')
+        fetch(whatFetch)
             .then(res => res.json())
             .then(res => {
                 res.map(user => {

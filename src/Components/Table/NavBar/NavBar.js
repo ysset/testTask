@@ -7,16 +7,19 @@ import {setSearchInput, setFilteredCards} from "../../../redux/actions"
 class NavButtons extends React.Component {
     constructor(props) {
         super(props);
-
-        this.handelPreviousButton = this.handelPreviousButton.bind(this)
-        this.handelNextButton = this.handelNextButton.bind(this)
+        this.state = {
+            searchInput: ''
+        }
+        this.handlePreviousButton = this.handlePreviousButton.bind(this)
+        this.handleNextButton = this.handleNextButton.bind(this)
     }
 
     handleChange(value) {
         this.props.setSearchInput(value)
-        this.globalSearch()
+        this.setState({searchInput: value}, () => {this.globalSearch()})
     }
 
+    //GLOBAL SEARCH FUNC. IT CAN WORK BETTER IF INPUT CHECK WHEN U BACKSPACE BUT IT'S NOT
     globalSearch = () => {
         const  searchInput  = this.props.state.searchInput;
         let filteredCards = this.props.state.data
@@ -37,37 +40,39 @@ class NavButtons extends React.Component {
 
 
 
-    handelPreviousButton() {
+    handlePreviousButton() {
         this.props.previousPage()
-        this.globalSearch()
     }
 
-    handelNextButton() {
+    handleNextButton() {
         this.props.nextPage()
-        this.globalSearch()
+        this.props.onSort()
     }
 
     render() {
         return (
             <>
+                {/*NAV BUTTONS*/}
                 <div className="nav-item middle-xs p-t-13">
                     {
                         this.props.state.visibleFrom !== 0 &&
-                        <button onClick={this.handelPreviousButton} className={'button is-outline '}>Previous page</button>
+                        <button onClick={this.handlePreviousButton} className={'button is-outline '}>Previous page</button>
                     }
                 </div>
                 <div className="nav-item  p-t-13">
                     {
                         this.props.state.visibleTo < this.props.state.data.length &&
-                        <button onClick={() => this.handelNextButton()} className={'button is-outline '}>Next page</button>
+                        <button onClick={this.handleNextButton} className={'button is-outline '}>Next page</button>
                     }
                 </div>
+                {/*SEARCH INPUT*/}
                 <div className="nav-control">
                     <div className="input has-icon-back is-inverse">
-                        <input type="text" onChange={event => {
-                            console.log(event.target.value)
-                            this.handleChange(event.target.value)
-                        }}
+                        <input type="text"
+                               onChange={event => {
+                               console.log(event.target.value)
+                                   this.handleChange(event.target.value)
+                                }}
                                placeholder="Search"/><a className={"d-icon d-search"}/>
                     </div>
                 </div>

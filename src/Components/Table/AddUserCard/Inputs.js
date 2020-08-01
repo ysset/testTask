@@ -20,7 +20,7 @@ class Inputs extends React.Component {
     }
 
     handleCheckState() {
-        debugger
+        //CHECK IF JUST ONE INPUT HAS VALUE
         const {id, firstName, lastName, email, phone, address, description} = this.state
         if (
             !id &&
@@ -37,7 +37,7 @@ class Inputs extends React.Component {
         }
 }
 
-
+//A LOT OF FCK INPUT NOTHING INTERESTING
     render() {
         return (
             <div>
