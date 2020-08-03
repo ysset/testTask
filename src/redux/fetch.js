@@ -1,4 +1,4 @@
-import {fetchDataSuccess, fetchDataError} from './actions';
+import {fetchDataError, fetchDataSuccess} from './actions';
 
 function fetchData(whatFetch) {
 
@@ -13,7 +13,7 @@ function fetchData(whatFetch) {
                 return res
             })
             .then(res => {
-                if(res.error) {
+                if (res.error) {
                     throw(res.error);
                 }
                 dispatch(fetchDataSuccess(res));

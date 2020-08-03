@@ -35,13 +35,13 @@ class Inputs extends React.Component {
         } else {
             this.props.setNewCardData(this.state)
         }
-}
+    }
 
 //A LOT OF FCK INPUT NOTHING INTERESTING
     render() {
         return (
             <div>
-             <div className={'col-xs input'}>
+                <div className={'col-xs input'}>
 
                     <input type='number'
                            id={'id'}
@@ -99,17 +99,19 @@ class Inputs extends React.Component {
 
 
                     <textarea type='text'
-                           id={'description'}
-                           placeholder={'description'}
-                           style={{'margin': '5px', 'width': '230'}}
-                           onChange={event => this.setState(
-                               {description: event.target.value},
-                               () => this.setState({disabled: false}))}
+                              id={'description'}
+                              placeholder={'description'}
+                              style={{'margin': '5px', 'width': '230'}}
+                              onChange={event => this.setState(
+                                  {description: event.target.value},
+                                  () => this.setState({disabled: false}))}
                     />
                 </div>
-                    <form action={'#close'} className={'col-xs'} style={{'margin': '10px'}}>
-                        <button disabled={this.state.disabled} className={'button is-outline'}  onClick={this.handleCheckState}>Save</button>
-                    </form>
+                <form action={'#close'} className={'col-xs'} style={{'margin': '10px'}}>
+                    <button disabled={this.state.disabled} className={'button is-outline'}
+                            onClick={this.handleCheckState}>Save
+                    </button>
+                </form>
             </div>
         )
     }
@@ -118,8 +120,9 @@ class Inputs extends React.Component {
 const mapStateToProps = state => ({
     state: getState(state)
 })
+
 function mapDispatchToProps(dispatch) {
-    return{
+    return {
         setNewCardData: (state) => dispatch(setNewCardData(state)),
     }
 }

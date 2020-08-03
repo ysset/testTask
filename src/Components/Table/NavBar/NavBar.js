@@ -1,8 +1,7 @@
 import React from "react";
 import {getState} from "../../../redux/meReducer";
 import {connect} from "react-redux";
-import {next, previous} from "../../../redux/actions";
-import {setSearchInput, setFilteredCards} from "../../../redux/actions"
+import {next, previous, setFilteredCards, setSearchInput} from "../../../redux/actions";
 
 class NavButtons extends React.Component {
     constructor(props) {
@@ -16,12 +15,14 @@ class NavButtons extends React.Component {
 
     handleChange(value) {
         this.props.setSearchInput(value)
-        this.setState({searchInput: value}, () => {this.globalSearch()})
+        this.setState({searchInput: value}, () => {
+            this.globalSearch()
+        })
     }
 
     //GLOBAL SEARCH FUNC. IT CAN WORK BETTER IF INPUT CHECK WHEN U BACKSPACE BUT IT'S NOT
     globalSearch = () => {
-        const  searchInput  = this.props.state.searchInput;
+        const searchInput = this.props.state.searchInput;
         let filteredCards = this.props.state.data
             .slice(this.props.state.visibleFrom, this.props.state.visibleTo)
             .filter(value => {
@@ -37,7 +38,6 @@ class NavButtons extends React.Component {
             })
         this.props.setFilteredCards(filteredCards);
     }
-
 
 
     handlePreviousButton() {
@@ -56,7 +56,8 @@ class NavButtons extends React.Component {
                 <div className="nav-item middle-xs p-t-13">
                     {
                         this.props.state.visibleFrom !== 0 &&
-                        <button onClick={this.handlePreviousButton} className={'button is-outline '}>Previous page</button>
+                        <button onClick={this.handlePreviousButton} className={'button is-outline '}>Previous
+                            page</button>
                     }
                 </div>
                 <div className="nav-item  p-t-13">
@@ -70,9 +71,8 @@ class NavButtons extends React.Component {
                     <div className="input has-icon-back is-inverse">
                         <input type="text"
                                onChange={event => {
-                               console.log(event.target.value)
                                    this.handleChange(event.target.value)
-                                }}
+                               }}
                                placeholder="Search"/><a className={"d-icon d-search"}/>
                     </div>
                 </div>
@@ -80,6 +80,7 @@ class NavButtons extends React.Component {
         )
     }
 }
+
 const mapStateToProps = state => ({
     state: getState(state)
 })

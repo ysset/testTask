@@ -7,7 +7,6 @@ import {getState} from "../../redux/meReducer";
 class LoadingSpiner extends React.Component {
 
 
-
     render() {
         return (
             <div className="loader loader--button"/>

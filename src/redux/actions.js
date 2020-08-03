@@ -28,33 +28,33 @@ export function fetchDataError(error) {
 }
 
 export function setSearchInput(searchInput) {
-    return{
-        type:SET_SEARCH_INPUT,
+    return {
+        type: SET_SEARCH_INPUT,
         searchInput: searchInput
     }
 }
 
 export function setFilteredCards(filteredCards) {
-    return{
-        type:SET_FILTERED_CARDS,
+    return {
+        type: SET_FILTERED_CARDS,
         filteredCards: filteredCards
     }
 }
 
 export function next() {
-    return{
-        type:SET_NEXT_PAGE_DATA
+    return {
+        type: SET_NEXT_PAGE_DATA
     }
 }
 
 export function previous() {
-    return{
-        type:SET_PREVIOUS_PAGE_DATA
+    return {
+        type: SET_PREVIOUS_PAGE_DATA
     }
 }
 
 export function setNewCardData(newCardState) {
-    return{
+    return {
         type: SET_NEW_CARD_DATA,
         newCardState: newCardState
     }

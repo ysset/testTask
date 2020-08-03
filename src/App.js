@@ -5,12 +5,11 @@ import 'denali-css/css/denali-dark-theme.css'
 import 'denali-icon-font/dist/denali-icon-font.css'
 import './App.css';
 import Table from "./Components/Table/Table"
-import LoadingSpinner from '../src/Components/LoadingSpiner/LoadingSpiner'
+import LoadingSpiner from '../src/Components/LoadingSpiner/LoadingSpiner'
 import {getState} from "./redux/meReducer";
 import {bindActionCreators} from "redux";
 import fetch from "./redux/fetch";
 import {connect} from "react-redux";
-import LoadingSpiner from "../src/Components/LoadingSpiner/LoadingSpiner";
 /*SO I HAVE NO IDEA WHY BUT I DID IT VERY BAD*/
 // Я СОВЕРШИЛ ОГРОМНУЮ ОШИБКУ ПРИ СОЗДАНИИ ПРИЛОЖЕНИЯ.
 // ЧТО БЫ УБЕДИТЬСЯ В ЭТОМ ПРОШУ ПРОСЛЕДОВАТЬ В ПАПКУ REDUX/REDUCE.JS
@@ -39,8 +38,7 @@ class App extends React.Component {
 
     shouldComponentRender() {
         const {pending} = this.props.state;
-        console.log(pending)
-        if(pending === false) return false;
+        if (pending === false) return false;
         return true;
     }
 
@@ -56,18 +54,19 @@ class App extends React.Component {
 
     render() {
         const {error} = this.props.state
-        if(this.shouldComponentRender())  return (
+        if (this.shouldComponentRender()) return (
             <div className="modal is-active">
                 <div className="modal-container center-xs">
                     <div className="row modal-content">
 
-                        {!error && <> <div className={'col-xs'}>
-                            <button className={'button is-outline'}
-                                    onClick={this.handleSendDataToFetchBig}>
-                                {!this.state.pressed && 'Big data'}
-                                {this.state.pressed && <LoadingSpiner/>}
-                            </button>
-                        </div>
+                        {!error && <>
+                            <div className={'col-xs'}>
+                                <button className={'button is-outline'}
+                                        onClick={this.handleSendDataToFetchBig}>
+                                    {!this.state.pressed && 'Big data'}
+                                    {this.state.pressed && <LoadingSpiner/>}
+                                </button>
+                            </div>
                             <div className={'col-xs'}>
                                 <button className={'button is-outline'}
                                         onClick={this.handleSendDataToFetchSmall}>

@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './Utils/serviceWorker';
 import {Provider} from 'react-redux'
-import { applyMiddleware, createStore } from 'redux';
+import {applyMiddleware, createStore} from 'redux';
 import thunk from 'redux-thunk';
 import meReducer from './redux/meReducer'
 
@@ -15,7 +15,7 @@ const store = createStore(meReducer, applyMiddleware(...middleWares))
 
 const app = (
     <Provider store={store}>
-            <App />
+        <App/>
     </Provider>
 )
 

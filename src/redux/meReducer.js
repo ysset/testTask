@@ -1,7 +1,16 @@
-import {FETCH_DATA_PENDING, FETCH_DATA_SUCCESS, FETCH_DATA_ERROR, SET_SEARCH_INPUT, SET_FILTERED_CARDS, SET_PREVIOUS_PAGE_DATA, SET_NEXT_PAGE_DATA, SET_NEW_CARD_DATA, } from './actions';
+import {
+    FETCH_DATA_ERROR,
+    FETCH_DATA_PENDING,
+    FETCH_DATA_SUCCESS,
+    SET_FILTERED_CARDS,
+    SET_NEW_CARD_DATA,
+    SET_NEXT_PAGE_DATA,
+    SET_PREVIOUS_PAGE_DATA,
+    SET_SEARCH_INPUT,
+} from './actions';
 
 const initialState = { // FROM FETCH
-    data:[],
+    data: [],
     filteredCards: [],
     sortableData: [],
     visibleFrom: 0,
@@ -12,7 +21,7 @@ const initialState = { // FROM FETCH
 }
 
 export default function meReducer(state = initialState, action) {
-    switch(action.type) {
+    switch (action.type) {
 
 
         case SET_NEW_CARD_DATA: {
@@ -33,7 +42,7 @@ export default function meReducer(state = initialState, action) {
             return {
                 ...state,
                 searchInput: action.searchInput
-        }
+            }
 
         case SET_PREVIOUS_PAGE_DATA:
             return {
